@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components/Navbar';
+import { Filter } from './components/Filter';
+import { useState, useEffect} from 'react';
+import { getPokemonData, getPokemons} from "./api";
+import { Loader } from './components/Loader';
+
+
+
 
 function App() {
+  // const [search, setSearch] = useState('')
+  const [pokemons, setPokemons] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const fetchPokemon = async () => {
+    try {
+      const data = await getPokemons();
+      
+      const promises = data.results.map(async (pokemon) => {
+        return await getPokemonData(pokemon.url)
+      })
+      const results = await Promise.all(promises)
+      setPokemons(results)
+      setLoading(true)
+      // console.log(results)
+    } catch(err) {
+
+  }
+  } 
+
+  useEffect(() => {
+    fetchPokemon()
+  },[])
+
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      {loading ? <Filter  pokemons={pokemons}/> : <Loader/>}
     </div>
   );
 }

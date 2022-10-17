@@ -1,38 +1,209 @@
+body {
+  background-color: rgb(254, 255, 223);
+
+}
+
 .App {
+  margin: 0;
+}
+
+.logo {
+  display: block;
   text-align: center;
+  padding: 2rem;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 600px;
+  max-width: 1000px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.directSearchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pokemons {
+  margin: 0 auto;
+  width: 600px;
+  max-width: 600px;
+  margin-top: 2rem;
+  
+  
+}
+
+.pokeCard {
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.26);
+  text-align: center;
+  background-color: rgba(253, 253, 253, 0.63);
+}
+
+.pokeCard:hover {
+  background-color: rgba(224, 224, 224, 0.699);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pokeName img {
+  height: 110px;
+  width: 110px;
+  padding-bottom: 10px;
+}
+
+.pokeName {
+  text-transform: capitalize;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+.pokeTypes {
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.types {
+  padding-bottom: 45px;
+}
+
+.pokeStats h4 {
+  margin-bottom: 10px;
+}
+
+.pokeNumber {
+  padding-top: 30px;
+}
+
+
+.pokeInfo {
+position: absolute;
+background-color: rgb(255, 61, 61);
+color: rgb(248, 248, 248);
+border-radius: 20px;
+padding: 10px;
+margin-top: 10px;
+border: 1px solid rgb(175, 175, 175);
+box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.26);
+}
+.pokeInfo h3{
+  color: black;
+}
+.pokeInfo h1 {
+  color: rgb(255, 255, 124);
+}
+
+.pokeInfo:hover {
+  background-color: rgb(211, 35, 35);
+}
+
+.close {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close button {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.close button:hover {
+  background-color: rgb(255, 255, 124);
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes spin {
+  to { transform: rotate(360deg);}
 }
+
+.loader {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+
+  border-top: 8px solid rgb(255, 28, 28);
+  border-left: 8px solid rgb(255, 240, 27);
+  border-right: 8px solid rgba(255, 255, 255, 0);
+
+  animation: spin 0.575s infinite linear;
+
+  margin: 8rem auto;
+}
+
+.name {
+  color: rgba(88, 88, 88, 0.486);
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+@media only screen and (max-width: 600px) {
+  
+
+  .searchBar {
+    justify-content: space-around;
+    max-width: 400px;
+  }
+
+  .searchBar input {
+    max-width: 150px;
+  }
+
+  .searchBar h2 {
+    font-size: 20px;
+  }
+
+  .pokemons {
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+
+  }
+
+  .pokeTypes {
+    display: none ;
+  }
+  
+  .types {
+    display: none;
+  }
+  .pokeStats {
+    display: none ;
+
+  }
+
+  .pokeCard h4 {
+    display: none ;
+
+  }
+  
+  .pokeNumber {
+    display: none ;
+  }
+
+
+}
+  
+
