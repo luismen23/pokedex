@@ -24,13 +24,16 @@ export const SearchBar = () => {
         e.preventDefault()
         setPokemon('')
     }
+
+    const lowerCasedSearch = search.toLowerCase();
     
+
     return (
         <div>
             <h2>Direct Search</h2>
             <form className="directSearchbar">
                 
-                <input onChange={handleChange} placeholder="all generations (#898)" value={search}></input>
+                <input onChange={handleChange} placeholder="all generations (#898)" value={lowerCasedSearch}></input>
                 <button className="button" onClick={handleClick} >search</button>
             </form>
             {pokemon &&
